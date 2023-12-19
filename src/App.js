@@ -1,5 +1,5 @@
-import React,{useState} from 'react';
-import './App.css';
+import React,{useEffect,useState} from 'react';
+import './css/App.css';
 const App = () =>{
 
   //위의 const App() =>{ 은 function App() {과 같음  //todos는 할일 목록들을 저장하는 공간 / newTodo는 새로운 할 일을 추가 작성할 수 있는 공간
@@ -28,7 +28,10 @@ const App = () =>{
       //내가 제거하고싶은 할 일을 제거한 후 setTodos를 활용해서 할일 목록을 재설정
       setTodos(updateTodos);
       
-    }
+    };
+    useEffect(()=> {
+      console.log('todos 변경됨 : ',todos);
+    }, [todos]);
     return(
       <div>
         <h2> 크리스마스 ToDo List</h2>
