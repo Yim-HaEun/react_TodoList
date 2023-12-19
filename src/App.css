@@ -18,6 +18,7 @@ ul {
 }
 
 li {
+  width: 400px;
   margin: 8px 0;
   padding: 8px;
   border: 1px solid #ccc;
@@ -27,9 +28,12 @@ li {
 }
 
 button {
-  background-color: #f49e36;
+  background-color: #d99cf5;
   color: white;
   border: none;
   padding: 8px;
   cursor: pointer;
+}
+button:hover {
+  background-color: #9b7fa8;
 }
