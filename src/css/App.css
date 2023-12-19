@@ -26,14 +26,48 @@ li {
   justify-content: space-between;
   align-items: center;
 }
-
-button {
+#size{
+  width: 300px;
+}
+#bigdiv{
+  width: 100%;
+  
+}
+#add{
   background-color: #e21e1e;
   color: white;
   border: none;
   padding: 8px;
   cursor: pointer;
 }
-button:hover {
+#add:hover {
   background-color: #b70000;
+}
+#text{
+  width:500px;
+}
+#edit{
+  background-color: #218500;
+  color: white;
+  border: none;
+  margin-left: 10px;
+  cursor: pointer;
+}
+#edit:hover {
+  background-color: #2d6919;
+}
+#delete{
+  background-color: #e21e1e;
+  color: white;
+  border: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+#delete:hover {
+  background-color: #b70000;
+}
+
+img {
+  width: 200px;
+
 }

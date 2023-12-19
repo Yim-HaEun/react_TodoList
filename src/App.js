@@ -1,10 +1,14 @@
-import React,{useEffect,useState} from 'react';
+import React,{useEffect,useState,useCallback} from 'react';
 import './css/App.css';
+import xmas from './img/Xmas.jpg';
 const App = () =>{
-
   //위의 const App() =>{ 은 function App() {과 같음  //todos는 할일 목록들을 저장하는 공간 / newTodo는 새로운 할 일을 추가 작성할 수 있는 공간
     const[todos, setTodos] = useState([]); //todos 초기값을 빈 배열로 생성하겠다는 의미
     const[newTodo, setNewTodo]=useState('');
+    const[count, setCount] = useState(0);
+    const[editingIndex, setEditingIndex] = useState(null);
+    const[editTodo, setEditTodo] = useState('');
+
     const addTodo = () =>{//할일이 추가될 때마다 추가할 수 있는 const 생성
       if(newTodo.trim() !==''){
 
@@ -13,7 +17,8 @@ const App = () =>{
 
         //저장된 할일 목록을 초기화 시켜주기위해 setNewTodo를 초기화 시켜줌
         setNewTodo('');
-        }
+        setCount((count) => count +1);
+        };
       }
     
     //할일을 삭제할 때마다 삭제할 수 있는 const 생성
@@ -27,39 +32,81 @@ const App = () =>{
       updateTodos.splice(index,1);
       //내가 제거하고싶은 할 일을 제거한 후 setTodos를 활용해서 할일 목록을 재설정
       setTodos(updateTodos);
-      
+      setCount((count) => count -1);
     };
+
+    const startEditing = (index, todo) => {
+      setEditingIndex(index);
+      setEditTodo(todo);
+    };
+    const saveEdit =() => {
+      const updateTodos = [...todos];
+      updateTodos[editingIndex] = editTodo;
+      setTodos(updateTodos);
+      setEditingIndex(null);
+    };
+
+    const cancelEdit = () => {
+      setEditingIndex(null);
+      setEditTodo('');
+    }
+
     useEffect(()=> {
       console.log('todos 변경됨 : ',todos);
-    }, [todos]);
+      document.title = `크리스마스에 할 일은 : ${count}개야`;
+    }, [todos,count]);
     return(
       <div>
         <h2> 크리스마스 ToDo List</h2>
-        <p>크리스마스에 할 일을 적어보자</p>
-        <div>
+        <img src={xmas}/>
+        <p> 할 일이 {count} 개 남았습니다.</p>
+        <div> {/*Todo List 추가하기 */}
           <input
           type="text"
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
           />
-          <button onClick={addTodo}>Add Todo</button>
+          <button id="add" onClick={addTodo}>Add Todo</button>
 
           <ul>
             {todos.map((todo, index) => (
-              <li key={index}>
+              <li id = "size" key={index}>
+                {editingIndex === index ? (
+                  <div>
+                    <input 
+                     type="text"
+                     value={editTodo}
+                     onChange={(e) => setEditTodo(e.target.value)}
+                    />
+                      
+                      <button id = "edit" onClick={saveEdit}>저장</button>
+                      <button id = "delete" onClick={cancelEdit}>취소</button>
+                    
+                  </div>
+                ) : (
+                <div>
                 {todo}
-                <button onClick={() => removeTodo(index)}>삭제하기</button>
-                
+                <button id="edit" onClick={() => startEditing(index, todo)}>edit</button>
+                <button id="delete" onClick={() => removeTodo(index)}>delete</button>
+                </div>
+                )}
               </li>
             ))}
           </ul>
         </div>
       </div>
     );
-  };   
+  }
 
+function TodoList(){
+  return(
+    <div>
+      <App/>
+    </div>
+  )
+}
 
-export default App;
+export default TodoList;
 
 //my-app
 //map 배열 객체 메서드
