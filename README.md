@@ -36,8 +36,7 @@ map 배열 객체 메서드\
   })
   ### 페이지 만들기 Router
   다른페이지로 이동할 때 링크를 처리하는데 사용 \
-사용방법 : npm install \
-react-router-dom \
+사용방법 : npm install(i로 대신 가능) react-router-dom \
 BrowserRouter : html 라우팅 처리하는데 사용 \
 
 라우팅 : 다른 페이지간의 전환이나 네비게이션을 관리하는 것을 나타냄 
@@ -50,3 +49,4 @@ Link : 클릭 가능한 링크를 생성하는데 사용
   크리스마스 할일 목록 정하기 ! \
   todo List 추가 \
   todo 완료시, 완료된 리스트 담기 \ 
+  Router를 활용해 페이지 링크 만들어서 새로운 페이지를 연결하기
