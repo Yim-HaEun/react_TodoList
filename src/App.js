@@ -9,7 +9,7 @@ import Footer from "./component/Footer";
 function App (){
   return(
     <Router>
-      <div>
+      <div id = "height">
         <Header/>
         <nav>
           <ul>

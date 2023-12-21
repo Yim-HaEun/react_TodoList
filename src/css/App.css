@@ -35,11 +35,15 @@ ul {
 }
 #sizes{
   width:50%;
-  height: 100%;
  
 }
 #text{
   width: 60%;
+  height: 100%;
+  flex-direction: column;
+  display :flex;
+  align-items: center;
+  justify-content: center;
 }
 #size{
   width:100%;
@@ -92,6 +96,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+   height: 1500px;
 }
 
 header {
@@ -123,8 +128,8 @@ section {
 }
 
 footer {
-  height: 200px;
-  color: rgb(130, 130, 130);
+  height: 180px;
+  color: rgb(255, 255, 255);
   padding: 1rem;
   text-align: center;
   position: fixed;
@@ -133,4 +138,8 @@ footer {
 }
 #banner{
   width : 1000px;
+}
+
+#height{
+ 
 }

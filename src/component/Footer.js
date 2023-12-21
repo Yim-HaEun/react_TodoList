@@ -1,5 +1,5 @@
 import React from "react";
-import foot from '../img/bikinibottom.jpg';
+import foot from '../img/jellyfish-fields.jpg';
 function Footer(){
     return(
         <footer style={{ backgroundImage: `url(${foot})` }}>
