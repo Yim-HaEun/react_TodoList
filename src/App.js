@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import './css/App.css';
 import './img/Xmas.jpg';
 import TodoList from "./component/ToDoList";
+import Home from "./component/Home";
 import Header from "./component/Header"
 
 import Footer from "./component/Footer";
@@ -14,7 +15,7 @@ function App (){
         <nav>
           <ul>
             <li>
-              <Link to ="/">Home</Link>
+              <Link to ="/home">Home</Link>
             </li>
             <li>
               <Link to = "/todo">할 일 목록</Link>
@@ -23,6 +24,7 @@ function App (){
         </nav>
         <hr />
         <Routes>
+          <Route path="/home" element={<Home/>}/>
           <Route path="/todo" element={<TodoList/>}/>
         </Routes>
         <Footer/>
