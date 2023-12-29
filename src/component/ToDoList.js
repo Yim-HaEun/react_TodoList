@@ -44,12 +44,14 @@ const App = () => {
   const startEditing = (index, todo) => {
     setEditingIndex(index);
     setEditTodo(todo);
+    localStorage.setItem('todo', JSON.stringify(startEditing));
   };
   const saveEdit = () => {
     const updateTodos = [...todos];
     updateTodos[editingIndex] = editTodo;
     setTodos(updateTodos);
     setEditingIndex(null);
+    localStorage.setItem('todos', JSON.stringify(saveEdit));
   };
 
   const cancelEdit = () => {

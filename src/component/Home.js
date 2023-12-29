@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import '../css/App.css';
 function Home() {
   const savePosts = JSON.parse(localStorage.getItem('posts')) || [];
 
